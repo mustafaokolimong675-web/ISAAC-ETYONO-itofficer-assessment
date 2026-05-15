@@ -1,3 +1,11 @@
+
+RUN
+/backend
+mvn spring-boot:run
+frontend
+npm install
+npm run dev
+project view is https://localhost:3000/tickets/new
 # Enterprise CRUD Template
 
 This is a complete professional enterprise-level FULL-STACK CRUD application template built with Java (Spring Boot) and React.js.
@@ -23,10 +31,3 @@ This is a complete professional enterprise-level FULL-STACK CRUD application tem
 - `/postman`: API test collection.
 - `/documentation`: Setup and API guides.
 
-RUN
-/backend
-mvn spring-boot:run
-frontend
-npm install
-npm run dev
-project view is https://localhost:8085/tickets/new
