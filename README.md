@@ -29,3 +29,4 @@ mvn spring-boot:run
 frontend
 npm install
 npm run dev
+project view is https://localhost:8085/tickets/new
