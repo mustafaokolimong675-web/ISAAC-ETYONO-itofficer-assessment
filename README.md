@@ -23,4 +23,3 @@ This is a complete professional enterprise-level FULL-STACK CRUD application tem
 - `/postman`: API test collection.
 - `/documentation`: Setup and API guides.
 
-Refer to [documentation/setup.md](documentation/setup.md) for installation steps.
