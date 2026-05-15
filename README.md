@@ -23,3 +23,9 @@ This is a complete professional enterprise-level FULL-STACK CRUD application tem
 - `/postman`: API test collection.
 - `/documentation`: Setup and API guides.
 
+RUN
+/backend
+mvn spring-boot:run
+frontend
+npm install
+npm run dev

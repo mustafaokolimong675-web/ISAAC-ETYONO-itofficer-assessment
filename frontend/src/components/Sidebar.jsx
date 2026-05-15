@@ -5,8 +5,8 @@ import { LayoutDashboard, List, PlusCircle, Settings, HelpCircle, LogOut, Dollar
 const Sidebar = () => {
     const menuItems = [
         { icon: <LayoutDashboard size={20} />, label: 'Dashboard', path: '/' },
-        { icon: <List size={20} />, label: 'Management', path: '/items' },
-        { icon: <PlusCircle size={20} />, label: 'Add New', path: '/items/new' },
+        { icon: <List size={20} />, label: 'Tickets', path: '/tickets' },
+        { icon: <PlusCircle size={20} />, label: 'New Ticket', path: '/tickets/new' },
     ];
 
     return (
@@ -37,7 +37,7 @@ const Sidebar = () => {
                     }}>
                         <DollarSign size={20} />
                     </div>
-                    DiuFinance
+                    Ticketing management system
                 </h1>
             </div>
 

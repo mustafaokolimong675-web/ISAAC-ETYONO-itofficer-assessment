@@ -13,9 +13,9 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/items" element={<ListPage />} />
-            <Route path="/items/new" element={<FormPage />} />
-            <Route path="/items/edit/:id" element={<FormPage />} />
+            <Route path="/tickets" element={<ListPage />} />
+            <Route path="/tickets/new" element={<FormPage />} />
+            <Route path="/tickets/edit/:id" element={<FormPage />} />
           </Routes>
         </main>
       </div>

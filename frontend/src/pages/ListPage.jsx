@@ -57,11 +57,11 @@ const ListPage = () => {
         <div>
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                 <div>
-                    <h2 style={{ fontSize: '1.875rem', fontWeight: 700 }}>Item Management</h2>
-                    <p style={{ color: 'var(--text-muted)' }}>Manage your enterprise assets and inventory.</p>
+                    <h2 style={{ fontSize: '1.875rem', fontWeight: 700 }}>Ticket Management</h2>
+                    <p style={{ color: 'var(--text-muted)' }}>Manage your enterprise support tickets.</p>
                 </div>
-                <button onClick={() => navigate('/items/new')} className="btn btn-primary">
-                    <Plus size={18} /> Add New Item
+                <button onClick={() => navigate('/tickets/new')} className="btn btn-primary">
+                    <Plus size={18} /> New Ticket
                 </button>
             </header>
 
@@ -71,7 +71,7 @@ const ListPage = () => {
                         <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                         <input 
                             type="text" 
-                            placeholder="Search by name, category or description..." 
+                            placeholder="Search by name, department or issue..." 
                             className="form-control"
                             style={{ paddingLeft: '40px' }}
                             value={searchTerm}
@@ -89,10 +89,10 @@ const ListPage = () => {
 
             <div className="card">
                 <Table 
-                    headers={['Name', 'Category', 'Price', 'Quantity', 'Status']} 
+                    headers={['User', 'Department', 'Issue', 'Priority', 'Status']} 
                     data={items}
                     loading={loading}
-                    onEdit={(item) => navigate(`/items/edit/${item.id}`)}
+                    onEdit={(item) => navigate(`/tickets/edit/${item.id}`)}
                     onDelete={handleDelete}
                 />
                 

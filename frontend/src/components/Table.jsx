@@ -15,12 +15,12 @@ const Table = ({ headers, data, onEdit, onDelete, loading }) => {
                 <tbody>
                     {data.length > 0 ? data.map((item, index) => (
                         <tr key={item.id || index}>
-                            <td style={{ fontWeight: 600 }}>{item.name}</td>
-                            <td>{item.category}</td>
-                            <td style={{ fontWeight: 700, color: 'var(--primary)' }}>${item.price.toFixed(2)}</td>
-                            <td>{item.quantity} units</td>
+                            <td style={{ fontWeight: 600 }}>{item.fullname}<br/><span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{item.email}</span></td>
+                            <td>{item.department}</td>
+                            <td style={{ fontWeight: 500 }}>{item.issueTitle}</td>
+                            <td>{item.priority}</td>
                             <td>
-                                <span className={`badge ${item.status === 'Active' ? 'badge-success' : 'badge-warning'}`}>
+                                <span className={`badge ${item.status === 'OPEN' ? 'badge-warning' : item.status === 'CLOSED' ? 'badge-success' : 'badge-primary'}`}>
                                     {item.status}
                                 </span>
                             </td>
