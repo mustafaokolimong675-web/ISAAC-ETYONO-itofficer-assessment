@@ -8,7 +8,7 @@ npm run dev
 project view is https://localhost:3000/tickets/new
 # Enterprise CRUD Template
 
-This is a complete professional enterprise-level FULL-STACK CRUD application template built with Java (Spring Boot) and React.js.
+
 
 ## Tech Stack
 - **Backend**: Java 17, Spring Boot 3, JPA, Hibernate, PostgreSQL, Lombok, Maven.
