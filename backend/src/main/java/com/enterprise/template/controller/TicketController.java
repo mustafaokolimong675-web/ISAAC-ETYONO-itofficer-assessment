@@ -1,7 +1,7 @@
 package com.enterprise.template.controller;
 
-import com.enterprise.template.dto.ItemDTO;
-import com.enterprise.template.service.ItemService;
+import com.enterprise.template.dto.TicketDTO;
+import com.enterprise.template.service.TicketService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -13,25 +13,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/items")
+@RequestMapping("/api/tickets")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*") // For development purposes
-public class ItemController {
+public class TicketController {
 
-    private final ItemService itemService;
+    private final TicketService ticketService;
 
     @PostMapping
-    public ResponseEntity<ItemDTO> createItem(@Valid @RequestBody ItemDTO itemDTO) {
-        return new ResponseEntity<>(itemService.createItem(itemDTO), HttpStatus.CREATED);
+    public ResponseEntity<TicketDTO> createTicket(@Valid @RequestBody TicketDTO ticketDTO) {
+        return new ResponseEntity<>(ticketService.createTicket(ticketDTO), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ItemDTO> getItemById(@PathVariable Long id) {
-        return ResponseEntity.ok(itemService.getItemById(id));
+    public ResponseEntity<TicketDTO> getTicketById(@PathVariable Long id) {
+        return ResponseEntity.ok(ticketService.getTicketById(id));
     }
 
     @GetMapping
-    public ResponseEntity<Page<ItemDTO>> getAllItems(
+    public ResponseEntity<Page<TicketDTO>> getAllTickets(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(defaultValue = "id") String sortBy,
@@ -42,19 +42,19 @@ public class ItemController {
         Pageable pageable = PageRequest.of(page, size, sort);
         
         if (search != null && !search.isEmpty()) {
-            return ResponseEntity.ok(itemService.searchItems(search, pageable));
+            return ResponseEntity.ok(ticketService.searchTickets(search, pageable));
         }
-        return ResponseEntity.ok(itemService.getAllItems(pageable));
+        return ResponseEntity.ok(ticketService.getAllTickets(pageable));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ItemDTO> updateItem(@PathVariable Long id, @Valid @RequestBody ItemDTO itemDTO) {
-        return ResponseEntity.ok(itemService.updateItem(id, itemDTO));
+    public ResponseEntity<TicketDTO> updateTicket(@PathVariable Long id, @Valid @RequestBody TicketDTO ticketDTO) {
+        return ResponseEntity.ok(ticketService.updateTicket(id, ticketDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
-        itemService.deleteItem(id);
+    public ResponseEntity<Void> deleteTicket(@PathVariable Long id) {
+        ticketService.deleteTicket(id);
         return ResponseEntity.noContent().build();
     }
 }

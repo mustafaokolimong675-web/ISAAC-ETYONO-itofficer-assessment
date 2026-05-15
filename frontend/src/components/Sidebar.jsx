@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, List, PlusCircle, Settings, HelpCircle, LogOut } from 'lucide-react';
+import { LayoutDashboard, List, PlusCircle, Settings, HelpCircle, LogOut, DollarSign } from 'lucide-react';
 
 const Sidebar = () => {
     const menuItems = [
@@ -23,16 +23,28 @@ const Sidebar = () => {
             zIndex: 100
         }}>
             <div className="sidebar-header" style={{ padding: '2rem 1.5rem', borderBottom: '1px solid var(--border)' }}>
-                <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <div style={{ background: 'var(--primary)', width: 32, height: 32, borderRadius: 8 }}></div>
-                    EnterpriseUI
+                <h1 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.75rem', letterSpacing: '-0.025em' }}>
+                    <div style={{
+                        background: 'linear-gradient(135deg, var(--primary), #4f46e5)',
+                        width: 36,
+                        height: 36,
+                        borderRadius: 10,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.2)'
+                    }}>
+                        <DollarSign size={20} />
+                    </div>
+                    DiuFinance
                 </h1>
             </div>
-            
+
             <nav style={{ padding: '1.5rem 1rem', flex: 1 }}>
                 {menuItems.map((item, index) => (
-                    <NavLink 
-                        key={index} 
+                    <NavLink
+                        key={index}
                         to={item.path}
                         style={({ isActive }) => ({
                             display: 'flex',

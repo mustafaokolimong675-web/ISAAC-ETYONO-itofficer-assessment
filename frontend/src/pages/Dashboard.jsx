@@ -3,21 +3,22 @@ import { ShoppingBag, Users, DollarSign, BarChart3 } from 'lucide-react';
 import api from '../services/api';
 
 const StatCard = ({ title, value, icon, color }) => (
-    <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+    <div className="card stat-card" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', border: 'none' }}>
         <div style={{ 
-            background: `${color}15`, 
+            background: `${color}10`, 
             color: color, 
-            padding: '1rem', 
-            borderRadius: '1rem',
+            padding: '1.25rem', 
+            borderRadius: '1.25rem',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            boxShadow: `0 8px 16px -4px ${color}20`
         }}>
             {icon}
         </div>
         <div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', fontWeight: 500 }}>{title}</p>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginTop: '0.25rem' }}>{value}</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{title}</p>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.25rem', color: 'var(--text-main)' }}>{value}</h3>
         </div>
     </div>
 );
@@ -51,20 +52,26 @@ const Dashboard = () => {
     };
 
     return (
-        <div>
-            <header style={{ marginBottom: '2rem' }}>
-                <h2 style={{ fontSize: '1.875rem', fontWeight: 700 }}>Welcome Back!</h2>
-                <p style={{ color: 'var(--text-muted)' }}>Here's what's happening in your business today.</p>
+        <div className="animate-fade-in">
+            <header style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                <div>
+                    <h2 style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.025em' }}>Financial Overview</h2>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '1.125rem', marginTop: '0.25rem' }}>Welcome back, here is your real-time performance summary.</p>
+                </div>
+                <div style={{ display: 'flex', gap: '0.75rem' }}>
+                    <button className="btn btn-outline">Download PDF</button>
+                    <button className="btn btn-primary">Refresh Data</button>
+                </div>
             </header>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-                <StatCard title="Total Items" value={stats.totalItems} icon={<ShoppingBag />} color="#2563eb" />
-                <StatCard title="Inventory Value" value={`$${stats.totalValue.toLocaleString()}`} icon={<DollarSign />} color="#10b981" />
-                <StatCard title="Avg. Item Price" value={`$${stats.avgPrice.toFixed(2)}`} icon={<BarChart3 />} color="#f59e0b" />
-                <StatCard title="Low Stock Alerts" value={stats.lowStock} icon={<Users />} color="#ef4444" />
+            <div className="dashboard-grid">
+                <StatCard title="Total Assets" value={stats.totalItems} icon={<ShoppingBag size={24} />} color="#4f46e5" />
+                <StatCard title="Portfolio Value" value={`$${stats.totalValue.toLocaleString()}`} icon={<DollarSign size={24} />} color="#10b981" />
+                <StatCard title="Avg. Asset Price" value={`$${stats.avgPrice.toFixed(2)}`} icon={<BarChart3 size={24} />} color="#f59e0b" />
+                <StatCard title="Risk Alerts" value={stats.lowStock} icon={<Users size={24} />} color="#ef4444" />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: '1.5rem' }}>
                 <div className="card">
                     <h4 style={{ marginBottom: '1.5rem', fontWeight: 600 }}>Recent Activity</h4>
                     <div style={{ height: '300px', background: '#f8fafc', borderRadius: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>

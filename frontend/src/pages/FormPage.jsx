@@ -57,12 +57,12 @@ const FormPage = () => {
                 <ArrowLeft size={18} /> Back to List
             </button>
             
-            <header style={{ marginBottom: '2rem' }}>
-                <h2 style={{ fontSize: '1.875rem', fontWeight: 700 }}>
-                    {id ? 'Edit Item Details' : 'Register New Item'}
+            <header style={{ marginBottom: '2.5rem' }}>
+                <h2 style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.025em' }}>
+                    {id ? 'Refine Asset Details' : 'Register New Asset'}
                 </h2>
-                <p style={{ color: 'var(--text-muted)' }}>
-                    Fill in the details below to {id ? 'update the existing' : 'create a new'} record in the system.
+                <p style={{ color: 'var(--text-muted)', fontSize: '1.125rem', marginTop: '0.25rem' }}>
+                    {id ? 'Modify the parameters of this financial record.' : 'Enter the details to initialize a new asset in the ecosystem.'}
                 </p>
             </header>
 
