@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-// Get API URL from environment or use default
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8085/api/v1/tickets';
+// Use the proxy configured in vite.config.js
+// This routes /api/v1 requests to http://localhost:8085
+const API_URL = '/api/v1/tickets';
 
 const api = {
     getAll: (params) => axios.get(API_URL, { params }),
